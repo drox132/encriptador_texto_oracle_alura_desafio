@@ -130,6 +130,9 @@ line-height: 24px;
         width: auto;
         margin: 16px;
     }
+    .main_intro_datos_logo{
+         margin: 16px 16px 16px -28px;
+     }
     .main_mostrar_datos{
         width: auto;
         margin: 16px ;
