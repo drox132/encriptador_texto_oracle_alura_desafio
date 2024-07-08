@@ -33,14 +33,17 @@ html,body{
     display: flex;
     flex-direction: column;
     gap: 8px;
+    text-overflow: wrap;
 }
 .main_intro_datos_input{
 width: 75%;
 height: 48px;
+max-height: 50%;
 font-size: 2rem;
 line-height: 48px;
 border: none;
 background-color: rgb(235, 241, 244);
+
 
 }
 .main_intro_datos_contenedor_boton{
@@ -61,6 +64,7 @@ background-color: rgb(235, 241, 244);
 .desencriptar{
     color: #0A3871;
     background-color: #D8DFE8;
+
 }
 
 
@@ -91,6 +95,7 @@ background-color: rgb(235, 241, 244);
 text-align: center;
 line-height: 24px;
 }
+
 /* ==================================== */
 /* RESPOSIVIDAD PARA TABLETS */
 /* ==================================== */

@@ -23,12 +23,13 @@
         <!-- SECCION INGRESAR DATOS  -->
         <!-- ============================== -->
         <section class="main_intro_datos">
-            <input type="text" class="main_intro_datos_input" placeholder="Ingrese el texto aqui">
-            <section class="main_intro_datos_contenedor_icon_boton">
+            <textarea name="" id="multiline-input" type="text" class="main_intro_datos_input txtInput" placeholder="Ingrese el texto aqui"></textarea>
+<!--             <input type="text" class="main_intro_datos_input txtInput" placeholder="Ingrese el texto aqui">
+ -->            <section class="main_intro_datos_contenedor_icon_boton">
                 <label for=""><i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos</label>
                 <section class="main_intro_datos_contenedor_boton">
-                    <button class="main_intro_datos_boton encriptar">Encriptar</button>
-                    <button class="main_intro_datos_boton desencriptar">Desencriptar</button>
+                    <button class="main_intro_datos_boton encriptar" onclick="clickEncriptar()">Encriptar</button>
+                    <button class="main_intro_datos_boton desencriptar" onclick="clickDesencriptar()">Desencriptar</button>
                 </section>
             </section>
         </section>
@@ -36,7 +37,7 @@
         <!-- SECCION MOSTRAR DATOS  -->
         <!-- ============================== -->
         <section class="main_mostrar_datos">
-            <section>
+            <section >
                 <img src="imagenes/Muñeco.png" alt="muneco descubriendo" class="main_mostrar_datos_imagen">
             </section>
             <section class="main_intro_datos_container_texto">
@@ -59,5 +60,6 @@
     <!-- ============================== -->
      <!-- ENLAZAR LA LIBRERIA FONT AWESOME-->
      <script src="https://kit.fontawesome.com/8add605683.js" crossorigin="anonymous"></script>
+     <script src="app.js"></script>
 </body>
 </html>
