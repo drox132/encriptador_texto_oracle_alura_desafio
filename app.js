@@ -1,16 +1,4 @@
 
-/* 
-La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
- */
-
-let btnEncriptar = document.querySelector(".encriptar");
-console.log(btnEncriptar);
-let btnDesencriptar = document.querySelector(".desencriptar");
-console.log(btnDesencriptar);
 
 
 /* =========================================================== */
@@ -75,11 +63,6 @@ function clickDesencriptar (){
     incrustarTextoParaMostrar(textoEncriptado);
 
 
-    // Reemplazar palabras
-/*     let newStr = replaceWords(textoEncriptado, palabrasAReemplazar, nuevasPalabras);
- */    
-/*     console.log(newStr); 
- */
 
 
 }
@@ -88,36 +71,7 @@ function clickDesencriptar (){
 /* FUNCIONES PARA ORGANIZAR EL CODIGO Y SEGMENTAR */
 /* =========================================================================== */
 
-function replaceWords(str, wordsToReplace, newWords) {
-    // Verificar que los arrays tengan la misma longitud
-    if (wordsToReplace.length !== newWords.length) {
-        throw new Error("Los arrays wordsToReplace y newWords deben tener la misma longitud");
-    }
-
-    // Reemplazar cada palabra en wordsToReplace por su correspondiente en newWords
-    for (let i = 0; i < wordsToReplace.length; i++) {
-        // Usar split y join para reemplazar la palabra
-        str = str.split(wordsToReplace[i]).join(newWords[i]);
-    }
-
-    return str;
-}
-
 /* =========================================================================== */
-
-function reemplazoRegex(str, wordsToReplace, newWords, mapaDeReemplazo){
-    for (let i = 0; i < palabrasAReemplazar.length; i++) {
-        mapaDeReemplazo[palabrasAReemplazar[i]] = nuevasPalabras[i];
-        console.log(mapaDeReemplazo[palabrasAReemplazar[i]] = nuevasPalabras[i]);
-        
-
-    }
-    let regex = new RegExp(palabrasAReemplazar.join('|'), 'g');
-    let newStr = textoEncriptado.replace(regex, (matched) => mapaDeReemplazo[matched]);
-
-/*     console.log(newStr); 
- */    return newStr;
-}
 /* =========================================================================== */
 
 function ocultarSeccionImagen (){
@@ -141,6 +95,7 @@ function ocultarSeccionImagen (){
 }
 
 /* =========================================================================== */
+/* =========================================================================== */
 
 function incrustarTextoParaMostrar(texto){
 
@@ -161,7 +116,8 @@ function incrustarTextoParaMostrar(texto){
     }
     /* AGREGAMOS LOS HIJOS CREADOS A LA ETIQUETA PADRE  */
     
-    if(!contenedorTextoParaMostrar.contains(document.querySelector("p")) && !contenedorTextoParaMostrar.contains(document.querySelector("button"))){
+    if(!contenedorTextoParaMostrar.contains(document.querySelector("p")) 
+        && !contenedorTextoParaMostrar.contains(document.querySelector("button"))){
         contenedorTextoParaMostrar.append(parrafoTextoParaMostrar);
         contenedorTextoParaMostrar.append(botonCopiarParaMostrar);
          /* LE ASIGNAMOS CONTENIDO A LAS ETIQUETAS */
@@ -177,8 +133,6 @@ function incrustarTextoParaMostrar(texto){
     darEstiloEtiquetasCreadas(parrafoTextoParaMostrar, botonCopiarParaMostrar, contenedorMostrarDatos, contenedorTextoParaMostrar );
 
     /* EN ESTA PARTE SE AGREGA FUNCIONALIDAD AL BOTON COPIAR */
-
-
    
 }
 
@@ -203,9 +157,12 @@ document.addEventListener('DOMContentLoaded', function () {
     textarea.style.height = 'auto';
     textarea.style.height = (textarea.scrollHeight) + 'px';
 });
-/* =========================================================================== */
-/* =========================================================================== */
 
+
+/* =========================================================================== */
+/* =========================================================================== */
+/* EN ESTA SECCION SE LE DA ESTILO A LAS ETIQUETAS CREADAS */
+/* SE PUEDE MEJORAR CREANDO UN ARRAY DE ETIQUETAS */
 
 function darEstiloEtiquetasCreadas(parrafo, boton, contenedorGeneral, contenedorTexto ){
      /* MODIFICAMOS LOS ESTILOS DE LAS ETIQUETAS */
@@ -222,6 +179,10 @@ function darEstiloEtiquetasCreadas(parrafo, boton, contenedorGeneral, contenedor
      parrafo.setAttribute("class","texto-para-copiar")
 }
 
+
+/* =========================================================================== */
+/* =========================================================================== */
+/* EN ESTA SECCION SE DA LA FUNCIONALIDAD PARA COPIAR EL TEXTO DE LA SECCION MOSTRAR DATOS */
 function copiarTexto(boton){
 
      // Selecciona el párrafo cuyo texto será copiado
@@ -246,4 +207,43 @@ function copiarTexto(boton){
              console.error('Error al copiar el texto: ', err);
              alert('Error al copiar el texto');
          });
+}
+
+
+/* ================================================================= */
+/* ================================================================= */
+/* OTRAS FUNCIONES PARA DESENCRIPTAR UN POCO MAS COMPLEJAS */
+/* USANDO SPLIT Y JOIN CONVINADOS */
+
+function replaceWords(str, wordsToReplace, newWords) {
+    // Verificar que los arrays tengan la misma longitud
+    if (wordsToReplace.length !== newWords.length) {
+        throw new Error("Los arrays wordsToReplace y newWords deben tener la misma longitud");
+    }
+
+    // Reemplazar cada palabra en wordsToReplace por su correspondiente en newWords
+    for (let i = 0; i < wordsToReplace.length; i++) {
+        // Usar split y join para reemplazar la palabra
+        str = str.split(wordsToReplace[i]).join(newWords[i]);
+    }
+
+    return str;
+}
+
+/* =========================================================================== */
+/* =========================================================================== */
+/* USANDO REGEX Y REPLACE */
+
+function reemplazoRegex(str, wordsToReplace, newWords, mapaDeReemplazo){
+    for (let i = 0; i < palabrasAReemplazar.length; i++) {
+        mapaDeReemplazo[palabrasAReemplazar[i]] = nuevasPalabras[i];
+        console.log(mapaDeReemplazo[palabrasAReemplazar[i]] = nuevasPalabras[i]);
+        
+
+    }
+    let regex = new RegExp(palabrasAReemplazar.join('|'), 'g');
+    let newStr = textoEncriptado.replace(regex, (matched) => mapaDeReemplazo[matched]);
+
+/*     console.log(newStr); 
+ */    return newStr;
 }
